@@ -4,8 +4,8 @@ const sharp = require('sharp');
 const s3 = new AWS.S3();
 
 exports.handler = async (event, context, callback) => {
-  const Bucket = event.Records[0].jonghae5.bucket.name; // react-nodebird-jonghae5
-  const Key = decodeURIComponent(event.Records[0].jonghae5.object.key); // original/12312312_abc.png
+  const Bucket = event.Records[0].s3.bucket.name; // react-nodebird-jonghae5-s3
+  const Key = decodeURIComponent(event.Records[0].s3.object.key); // original/12312312_abc.png
   console.log(Bucket, Key);
   const filename = Key.split('/')[Key.split('/').length - 1];
   const ext = Key.split('.')[Key.split('.').length - 1].toLowerCase();
